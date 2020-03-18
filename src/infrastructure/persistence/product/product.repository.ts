@@ -19,7 +19,7 @@ export default class ProductRepository implements ProductRepositoryContract {
         ];
     }
 
-    findAll(): Product[] {
+    async findAll(): Promise<Product[]> {
         return this.products;
     }
     
