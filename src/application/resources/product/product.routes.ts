@@ -9,5 +9,6 @@ const productController = new ProductController(new ProductService(new ProductRe
 router.get('/product/:id/sell',  productController.sellProduct);
 router.get('/product/sold', productController.getSoldProducts);
 router.get('/product/simulation/:days', productController.evaluateProducts);
+router.get('/product/update/ONLY-TEST', productController.updateProducts);
  
 export = router;

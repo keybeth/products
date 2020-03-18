@@ -37,6 +37,7 @@ export default class ProductRepository implements ProductRepositoryContract {
 
     
     async update(product: Product): Promise<void> {
+        logger.debug(`Init update`);
         const productIndex = this.products.findIndex(prev => prev.id === product.id);
         if(productIndex >= 0) {
             logger.debug(`Producto encontrado id = ${ this.products[productIndex].description}`);

@@ -9,4 +9,6 @@ export interface ProductContract {
 
     evaluateProducts(days: number) : Promise<ProductDTO[]>;
 
+    updateProducts(): Promise<void>;
+
 }

@@ -48,8 +48,10 @@ export class ProductService implements ProductContract {
         });
     }
 
-    async updateProducts(): Promise<void>{
+    async updateProducts(): Promise<void> {
+        logger.debug(`Init updateProducts`);
         const products = await this.evaluateProducts(1);
+        logger.debug(`Actualizar productos evaluados`);
         products.forEach(productDTO => {
             const {id, description, sellIn, price, rule} = productDTO;
             const product = Product.fromFields(id, description, sellIn, price, rule.toString());
