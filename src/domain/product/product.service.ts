@@ -48,6 +48,15 @@ export class ProductService implements ProductContract {
         });
     }
 
+    async updateProducts(): Promise<void>{
+        const products = await this.evaluateProducts(1);
+        products.forEach(productDTO => {
+            const {id, description, sellIn, price, rule} = productDTO;
+            const product = Product.fromFields(id, description, sellIn, price, rule.toString());
+            this.productRepository.update(product);
+        });
+    }
+
     private getPriceStrategy(productRule: ProductRule): PriceCalcContract {    
         let priceStrategy: PriceCalcContract;
         switch(productRule) {

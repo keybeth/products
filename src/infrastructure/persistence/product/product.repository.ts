@@ -34,5 +34,17 @@ export default class ProductRepository implements ProductRepositoryContract {
         logger.debug(`Init findAll`);
         return this.products;
     }
+
+    
+    async update(product: Product): Promise<void> {
+        const productIndex = this.products.findIndex(prev => prev.id === product.id);
+        if(productIndex >= 0) {
+            logger.debug(`Producto encontrado id = ${ this.products[productIndex].description}`);
+            this.products[productIndex] = product;
+        } else {
+            logger.error(`No existe el producto con el id = ${product.id}`);
+            throw new Error(`No existe el producto con el id = ${product.id}`);
+        }
+    }
     
 }

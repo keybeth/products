@@ -4,4 +4,6 @@ export default interface ProductRepositoryContract {
     findAll(): Promise<Product[]>;
 
     findById(id: number): Promise<Product>;
+
+    update(product: Product): Promise<void>;
 }
