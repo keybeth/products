@@ -10,7 +10,7 @@ export class ProductController {
   sellProduct = async (req, res) => {
     try {
       if (isNaN(req.params.id)) {
-        
+
         throw new Error(`Parametro id = ${req.params.id}, no es numerico `);
       }
       const productId = parseInt(req.params.id);
@@ -35,8 +35,8 @@ export class ProductController {
 
   evaluateProducts = async (req, res) => {
     try {
-      if (isNaN(req.params.days)) {
-        throw new Error('Parametro days no es numerico');
+      if (isNaN(req.params.days) && parseInt(req.params.days) < 0) {
+        throw new Error('Parametro days no es valido');
       }
       const days = parseInt(req.params.days);
       const result = await this.productService.evaluateProducts(days);

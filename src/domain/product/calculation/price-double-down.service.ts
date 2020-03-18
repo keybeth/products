@@ -8,7 +8,7 @@ export default class PriceDoubleDownService implements PriceCalcContract {
         let variation = 2 * days;
         const sellIn = product.sellIn - days;
         if(sellIn < 0) {
-            variation = 2 * variation * Math.abs(sellIn);
+            variation = 2 * (variation + Math.abs(sellIn));
         }
         return PriceUtils.validateMinPrice(product.price, variation);
     }

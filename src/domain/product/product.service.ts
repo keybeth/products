@@ -7,6 +7,7 @@ import PriceUpService from "./calculation/price-up.service";
 import PriceFixedService from "./calculation/price-fixed.service";
 import PriceUpSpecialService from "./calculation/price-up-special.service";
 import PriceDownService from "./calculation/price-down.service";
+import logger from "../../infrastructure/config/logger";
 
 export class ProductService implements ProductContract {
 
@@ -23,14 +24,12 @@ export class ProductService implements ProductContract {
     async evaluateProducts(days: number): Promise<ProductDTO[]> {
         const products = await this.productRepository.findAll();
         return products.map(product => {
-            const productDTO = new ProductDTO();
-            productDTO.id = product.id;
-            productDTO.description = product.description;
-            productDTO.sellIn = product.sellIn;
-            productDTO.price = product.price;
-            productDTO.rule = ProductRule[product.rule];
-            productDTO.price = this.getPriceStrategy(productDTO.rule).calculatePrice(productDTO, days);
-            productDTO.sellIn = product.sellIn - days;
+            const {id, description, sellIn, price, rule} = product;
+            const productDTO = ProductDTO.fromFields(id, description, sellIn, price, ProductRule[rule]);
+            if(days > 0) {
+                productDTO.price = this.getPriceStrategy(productDTO.rule).calculatePrice(productDTO, days);
+                productDTO.sellIn = product.sellIn - days;
+            }
             return productDTO;
         });
     }
@@ -55,6 +54,7 @@ export class ProductService implements ProductContract {
             default:
                 priceStrategy = new PriceDownService();
         }
+        logger.debug(`PriceStrategy: ${priceStrategy.constructor.name} para rule: ${productRule}`);
         return priceStrategy;
     }
 
