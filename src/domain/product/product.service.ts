@@ -8,20 +8,34 @@ import PriceFixedService from "./calculation/price-fixed.service";
 import PriceUpSpecialService from "./calculation/price-up-special.service";
 import PriceDownService from "./calculation/price-down.service";
 import logger from "../../infrastructure/config/logger";
+import SaleRepositoryContract from "../../infrastructure/persistence/sale/sale.repository.contract";
+import Sale from "../../infrastructure/persistence/sale/sale.entity";
+import Product from "../../infrastructure/persistence/product/product.entity";
 
 export class ProductService implements ProductContract {
 
-    constructor(private productRepository: ProductRepositoryContract) {
+    constructor(
+        private productRepository: ProductRepositoryContract,
+        private saleRepository: SaleRepositoryContract) {
 
     }
 
     async sellProduct(productId: number): Promise<void> {
-        throw new Error("Method not implemented.");
+        logger.debug(`Init sellProduct`);
+        const product = await this.productRepository.findById(productId);
+        // TODO no queda claro si hay que filtrar los productos que tengan sellIn < 0, para la venta.
+        const sale = Sale.fromProduct(product);
+        this.saleRepository.insert(sale);
+        logger.debug(`End sellProduct`);
     }
-    async getSoldProducts() {
-        throw new Error("Method not implemented.");
+
+    async getSoldProducts(): Promise<Sale[]> {
+        logger.debug(`Init getSoldProducts`);
+        return this.saleRepository.findAll();
     }
+
     async evaluateProducts(days: number): Promise<ProductDTO[]> {
+        logger.debug(`Init evaluateProducts`);
         const products = await this.productRepository.findAll();
         return products.map(product => {
             const {id, description, sellIn, price, rule} = product;
@@ -33,6 +47,7 @@ export class ProductService implements ProductContract {
             return productDTO;
         });
     }
+
     private getPriceStrategy(productRule: ProductRule): PriceCalcContract {    
         let priceStrategy: PriceCalcContract;
         switch(productRule) {
