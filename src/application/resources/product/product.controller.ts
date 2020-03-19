@@ -40,7 +40,7 @@ export class ProductController {
 
   evaluateProducts = async (req, res) => {
     try {
-      if (isNaN(req.params.days) && parseInt(req.params.days) < 0) {
+      if (isNaN(req.params.days) || parseInt(req.params.days) < 0) {
         throw new Error(`Parametro days = ${req.params.days} no es valido`);
       }
       const days = parseInt(req.params.days);

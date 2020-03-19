@@ -1,5 +1,5 @@
 
-# Test Seguros Falabella
+# Test Seguros
 
 Separacion en capas:
 
@@ -75,12 +75,18 @@ Separacion en capas:
         "sellIn": 3
     }
 ]
-
 ```
-## Ejecutar
+
+## Ejecutar desarrollo
 ```sh
 npm start
 ```
+## Ejecutar produccion
+```sh
+docker build -t products .
+docker run -p 4000:4000 -d products
+```
+
 ## Endpoints disponibles:
 
 | Endpoint | Descripcion |
@@ -91,3 +97,5 @@ npm start
 | **http://localhost:4000/api/test//product/update/ONLY-TEST** | Endpoint solo para test, para actualizar productos sin esperar la tarea de la media noche |
 
 
+## Postman collection
+Se incluye en el repo el archivo [Seguros.postman_collection.json](./Seguros.postman_collection.json), con una coleccion de ejemplos de la REST API.

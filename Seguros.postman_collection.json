@@ -1,0 +1,747 @@
+{
+	"info": {
+		"_postman_id": "407a3ae3-d97c-4aec-b1bc-7c8e8dbed976",
+		"name": "Seguros",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Evaluar precios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/test/product/simulation/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"test",
+						"product",
+						"simulation",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Evaluar precios OK dia 1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/test/product/simulation/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"test",
+								"product",
+								"simulation",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "739"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2e3-vfnID+2SPwzwPfiFy/7GeOiyWKI\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 19 Mar 2020 20:02:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"description\": \"Cobertura\",\n        \"price\": 19,\n        \"rule\": \"DOWN\",\n        \"sellIn\": 9\n    },\n    {\n        \"id\": 2,\n        \"description\": \"Full cobertura\",\n        \"price\": 1,\n        \"rule\": \"UP\",\n        \"sellIn\": 1\n    },\n    {\n        \"id\": 3,\n        \"description\": \"Baja cobertura\",\n        \"price\": 6,\n        \"rule\": \"DOWN\",\n        \"sellIn\": 4\n    },\n    {\n        \"id\": 4,\n        \"description\": \"Mega cobertura\",\n        \"price\": 80,\n        \"rule\": \"FIXED\",\n        \"sellIn\": -1\n    },\n    {\n        \"id\": 5,\n        \"description\": \"Mega cobertura\",\n        \"price\": 80,\n        \"rule\": \"FIXED\",\n        \"sellIn\": -2\n    },\n    {\n        \"id\": 6,\n        \"description\": \"Full cobertura super duper\",\n        \"price\": 21,\n        \"rule\": \"UP_SPECIAL\",\n        \"sellIn\": 14\n    },\n    {\n        \"id\": 7,\n        \"description\": \"Full cobertura super duper\",\n        \"price\": 51,\n        \"rule\": \"UP_SPECIAL\",\n        \"sellIn\": 9\n    },\n    {\n        \"id\": 8,\n        \"description\": \"Full cobertura super duper\",\n        \"price\": 52,\n        \"rule\": \"UP_SPECIAL\",\n        \"sellIn\": 4\n    },\n    {\n        \"id\": 9,\n        \"description\": \"Super avance\",\n        \"price\": 4,\n        \"rule\": \"DOUBLE_DOWN\",\n        \"sellIn\": 2\n    }\n]"
+				},
+				{
+					"name": "Evaluar precios NOK dia negativo",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/test/product/simulation/-1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"test",
+								"product",
+								"simulation",
+								"-1"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "32"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"20-q87gsoUofmZBLM/qvTimSrXVIW0\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 19 Mar 2020 20:03:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Parametro days = -1 no es valido"
+				},
+				{
+					"name": "Evaluar precios OK dia 0",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/test/product/simulation/0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"test",
+								"product",
+								"simulation",
+								"0"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "740"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2e4-0+TTdI5++H9vrKjWj/N6zbWtrMw\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 19 Mar 2020 15:21:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"description\": \"Cobertura\",\n        \"price\": 20,\n        \"rule\": \"DOWN\",\n        \"sellIn\": 10\n    },\n    {\n        \"id\": 2,\n        \"description\": \"Full cobertura\",\n        \"price\": 0,\n        \"rule\": \"UP\",\n        \"sellIn\": 2\n    },\n    {\n        \"id\": 3,\n        \"description\": \"Baja cobertura\",\n        \"price\": 7,\n        \"rule\": \"DOWN\",\n        \"sellIn\": 5\n    },\n    {\n        \"id\": 4,\n        \"description\": \"Mega cobertura\",\n        \"price\": 80,\n        \"rule\": \"FIXED\",\n        \"sellIn\": 0\n    },\n    {\n        \"id\": 5,\n        \"description\": \"Mega cobertura\",\n        \"price\": 80,\n        \"rule\": \"FIXED\",\n        \"sellIn\": -1\n    },\n    {\n        \"id\": 6,\n        \"description\": \"Full cobertura super duper\",\n        \"price\": 20,\n        \"rule\": \"UP_SPECIAL\",\n        \"sellIn\": 15\n    },\n    {\n        \"id\": 7,\n        \"description\": \"Full cobertura super duper\",\n        \"price\": 49,\n        \"rule\": \"UP_SPECIAL\",\n        \"sellIn\": 10\n    },\n    {\n        \"id\": 8,\n        \"description\": \"Full cobertura super duper\",\n        \"price\": 49,\n        \"rule\": \"UP_SPECIAL\",\n        \"sellIn\": 5\n    },\n    {\n        \"id\": 9,\n        \"description\": \"Super avance\",\n        \"price\": 6,\n        \"rule\": \"DOUBLE_DOWN\",\n        \"sellIn\": 3\n    }\n]"
+				},
+				{
+					"name": "Evaluar precios NOK day no numerico",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/test/product/simulation/qwe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"test",
+								"product",
+								"simulation",
+								"qwe"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"21-ug3zlnMCC3TzWn5DDPBugla4EQ4\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 19 Mar 2020 20:03:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Parametro days = qwe no es valido"
+				}
+			]
+		},
+		{
+			"name": "Vender producto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/test/product/1/sell",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"test",
+						"product",
+						"1",
+						"sell"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Vender producto NO EXISTE",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/test/product/10/sell",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"test",
+								"product",
+								"10",
+								"sell"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"24-J+1JjOzFo8eCCkC+SlPX5bWpvv4\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 19 Mar 2020 15:20:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "No existe el producto con el id = 10"
+				},
+				{
+					"name": "Vender producto PARAMETRO INVALIDO",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/test/product/que/sell",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"test",
+								"product",
+								"que",
+								"sell"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23-c7qp5hfcA3Kvbgs52dBMTf4tLwA\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 19 Mar 2020 15:21:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Parametro id = que, no es numerico "
+				},
+				{
+					"name": "Vender producto OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/test/product/1/sell",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"test",
+								"product",
+								"1",
+								"sell"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 19 Mar 2020 15:19:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Productos vendidos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/test/product/sold",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"test",
+						"product",
+						"sold"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Productos vendidos OK lista de productos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/test/product/sold",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"test",
+								"product",
+								"sold"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "126"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7e-lO/m5cr5SiT1I7pDZW77R9J5VVg\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 19 Mar 2020 20:05:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"product\": {\n            \"id\": 1,\n            \"description\": \"Cobertura\",\n            \"price\": 20,\n            \"rule\": \"DOWN\",\n            \"sellIn\": 10\n        },\n        \"id\": 1,\n        \"date\": \"2020-03-19T20:05:07.654Z\"\n    }\n]"
+				},
+				{
+					"name": "Productos vendidos Sin productos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/test/product/sold",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"test",
+								"product",
+								"sold"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 19 Mar 2020 20:04:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				}
+			]
+		},
+		{
+			"name": "ONLY TEST simular actualizacion de precios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/test/product/update/ONLY-TEST",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"test",
+						"product",
+						"update",
+						"ONLY-TEST"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

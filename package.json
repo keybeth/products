@@ -1,10 +1,11 @@
 {
   "name": "typeapi",
   "version": "0.0.1",
-  "description": "Test entrevista Seguros Fallabela.",
+  "description": "Test Productos de Seguros.",
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"tsc --watch\" \"nodemon dist/index.js\"",
+    "start:prod": "pm2-runtime start dist/index.js",
     "build": "tsc"
   },
   "dependencies": {

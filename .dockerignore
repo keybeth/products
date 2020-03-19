@@ -1,0 +1,6 @@
+.gitignore
+.git/
+dist/
+node_modules/
+README.md
+Seguros.postman_collection.json
